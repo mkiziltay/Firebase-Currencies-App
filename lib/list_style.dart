@@ -22,16 +22,16 @@ class LiStyle extends StatelessWidget {
               child: Container(
                 width: double.infinity,
                 height: 65,
-                color: Colors.amber.shade100,
+                color: bgColor.shade100,
                 child: Row(
                   children: [
                     Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 5),
+                        padding: padding_5,
                         child: Container(
                           width: 30,
                           decoration: BoxDecoration(
                             color: color,
-                            shape: BoxShape.circle,
+                            shape: circular,
                           ),
                         )),
                     Padding(
@@ -48,7 +48,7 @@ class LiStyle extends StatelessWidget {
                           style: TextStyle(
                               color: color,
                               fontSize: 32,
-                              fontWeight: FontWeight.bold),
+                              fontWeight: bold),
                         ))
                   ],
                 ),
