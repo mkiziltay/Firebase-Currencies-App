@@ -4,9 +4,9 @@
 * Used stream.builder for realtime changes.
 
 ## Code Written Directories 
-* android/app/..
-* android/build-gradle
-* android/app/build-gradle
+* android/app/.. (changes : from flutter firebase document)
+* android/build-gradle (changes : from flutter firebase document)
+* android/app/build-gradle (changes : from flutter firebase document)
 * main.dart
 * list_style.dart
 * pubspec.yml
