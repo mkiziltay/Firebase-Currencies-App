@@ -1,10 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:currencies/constants.dart';
-import 'package:currencies/helper_methods.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'body.dart';
-import 'list_style.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
