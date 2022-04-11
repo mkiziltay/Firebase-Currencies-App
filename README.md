@@ -4,9 +4,9 @@
 * Used stream.builder for realtime changes.
 
 ## Code Written Directories 
-* android/app/..
-* android/build-gradle
-* android/app/build-gradle
+* android/app/.. (changes : from flutter firebase document)
+* android/build-gradle (changes : from flutter firebase document)
+* android/app/build-gradle (changes : from flutter firebase document)
 * main.dart
 * list_style.dart
 * pubspec.yml
@@ -20,4 +20,4 @@
 * firebase_core: ^1.14.0
 
 ## Screen View Example ( with Button )
-<img src="https://github.com/mkiziltay/Html_processing_with_webview/blob/master/chart.png" alt = "Sample Screenview" width=394 height=851>
+<img src="https://github.com/mkiziltay/Firebase-Currencies-App/blob/master/curr_screen.png" alt = "Sample Screenview" width=394 height=851>
