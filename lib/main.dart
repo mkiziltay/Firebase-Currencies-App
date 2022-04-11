@@ -3,6 +3,7 @@ import 'package:currencies/constants.dart';
 import 'package:currencies/helper_methods.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'body.dart';
 import 'list_style.dart';
 
 void main() async {
@@ -46,41 +47,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text(appBarTitle),
         centerTitle: true,
       ),
-      body: Center(
-        child: Column(
-          children: [
-            StreamBuilder(
-                // What we listen.
-                stream: dayRef.snapshots(),
-                // What will we do downloaded datas.
-                builder: (BuildContext context, AsyncSnapshot asyncsnapshot) {
-                  if (asyncsnapshot.connectionState == // loading progress
-                      ConnectionState.waiting) {
-                    return Center(child: CircularProgressIndicator());
-                  }
-                  var dataStart = asyncsnapshot.data.data()['00:00'];
-                  var data = asyncsnapshot.data.data()['15:00'];
-
-                  var valuesStart = splitAndBuildArray(dataStart);
-                  var values = splitAndBuildArray(data);
-
-                  return Flexible(
-                    child: ListView.builder(
-                        itemCount: values.length,
-                        itemBuilder: (context, index) {
-                          return LiStyle(
-                                  title: titles[index],
-                                  color: compareValues(values[index],valuesStart[index]) ==
-                                          1 // if rising green else red color
-                                      ? colorUP
-                                      : colorDOWN,
-                                  value: values[index]);
-                        }),
-                  );
-                })
-          ],
-        ),
-      ),
+      body: Body(dayRef),
     );
   }
 }
