@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 stream: dayRef.snapshots(),
                 // What will we do downloaded datas.
                 builder: (BuildContext context, AsyncSnapshot asyncsnapshot) {
-                  if (asyncsnapshot.connectionState ==
+                  if (asyncsnapshot.connectionState == // loading icon
                       ConnectionState.waiting) {
                     return Center(child: CircularProgressIndicator());
                   }
