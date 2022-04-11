@@ -122,10 +122,3 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 
-/*
-                  CollectionReference monthRef = _firestore.collection('04-2022');
-                  DocumentReference dayRef = moviesRef.doc();
-                  var currencies = await monthRef.get();
-                  var valList = currencies.docs;
-                  print(valList[1].data());
- */
