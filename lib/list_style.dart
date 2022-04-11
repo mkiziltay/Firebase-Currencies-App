@@ -1,4 +1,5 @@
 
+import 'package:currencies/constants.dart';
 import 'package:flutter/material.dart';
 
 class LiStyle extends StatelessWidget {
@@ -34,17 +35,14 @@ class LiStyle extends StatelessWidget {
                           ),
                         )),
                     Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 15),
+                        padding: padding_15,
                         child: Text(
                           title,
-                          style: TextStyle(
-                              color: Colors.blue,
-                              fontSize: 32,
-                              fontWeight: FontWeight.bold),
+                          style: mainStyle,
                         )),
                         SizedBox(width: 25),
                     Padding(
-                        padding: EdgeInsets.symmetric(horizontal: 5),
+                        padding: padding_5,
                         child: Text(
                           value,
                           style: TextStyle(

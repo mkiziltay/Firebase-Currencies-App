@@ -95,9 +95,14 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: ListView.builder(
                         itemCount: values.length,
                         itemBuilder: (context, index) {
-                          return LiStyle(
+                          return LiStyle(//TODO: Circular progres dialog..
+                                          //TODO: constant class, Color class , padding maybe method class
                               title: titles[index],
-                              color: _compareValues(values[index], valuesStart[index]) == 1 ? Colors.green : Colors.red,
+                              color: _compareValues(
+                                          values[index], valuesStart[index]) ==
+                                      1
+                                  ? Colors.green
+                                  : Colors.red,
                               value: values[index]);
                         }),
                   );
@@ -120,5 +125,3 @@ class _MyHomePageState extends State<MyHomePage> {
     return 0;
   }
 }
-
-
