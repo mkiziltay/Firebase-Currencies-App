@@ -54,7 +54,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 stream: dayRef.snapshots(),
                 // What will we do downloaded datas.
                 builder: (BuildContext context, AsyncSnapshot asyncsnapshot) {
-                  if (asyncsnapshot.connectionState == // loading icon
+                  if (asyncsnapshot.connectionState == // loading progress
                       ConnectionState.waiting) {
                     return Center(child: CircularProgressIndicator());
                   }
@@ -70,9 +70,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         itemBuilder: (context, index) {
                           return LiStyle(
                                   title: titles[index],
-                                  color: compareValues(values[index],
-                                              valuesStart[index]) ==
-                                          1
+                                  color: compareValues(values[index],valuesStart[index]) ==
+                                          1 // if rising green else red color
                                       ? colorUP
                                       : colorDOWN,
                                   value: values[index]);
