@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:currencies/constants.dart';
+import 'package:currencies/helper_methods.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'list_style.dart';
@@ -6,7 +8,7 @@ import 'list_style.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -16,12 +18,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Currencies',
+      title: appBarTitle,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: const MyHomePage(),
     );
   }
 }
@@ -41,27 +43,12 @@ class _MyHomePageState extends State<MyHomePage> {
     DocumentReference dayRef = curRef.doc('10');
     return Scaffold(
       appBar: AppBar(
-        title: Text('Currencies'),
+        title: const Text(appBarTitle),
         centerTitle: true,
       ),
-      body: //LiStyle(title: 'USD/TRY',value: '14.8485',color: Colors.red,),
-          Center(
+      body:Center(
         child: Column(
           children: [
-            /*ElevatedButton(
-                onPressed: () async {
-                  var response = await dayRef.get();
-
-                  print(response.data().toString());
-                  print(response['imdb']);
-
-                  var response2 = await curRef.get();
-                  var list = response2.docs;
-                  print(list[1].data());
-
-                  
-                },
-                child: Text('get Data')),*/
             StreamBuilder(
                 // What we listen.
                 stream: dayRef.snapshots(),
@@ -70,8 +57,8 @@ class _MyHomePageState extends State<MyHomePage> {
                   var dataStart = asyncsnapshot.data.data()['00:00'];
                   var data = asyncsnapshot.data.data()['15:00'];
 
-                  var valuesStart = _splitAndBuildArray(dataStart);
-                  var values = _splitAndBuildArray(data);
+                  var valuesStart = splitAndBuildArray(dataStart);
+                  var values = splitAndBuildArray(data);
                   var titles = [
                     'USD/TRY',
                     'EUR/TRY',
@@ -98,11 +85,11 @@ class _MyHomePageState extends State<MyHomePage> {
                           return LiStyle(//TODO: Circular progres dialog..
                                           //TODO: constant class, Color class , padding maybe method class
                               title: titles[index],
-                              color: _compareValues(
+                              color: compareValues(
                                           values[index], valuesStart[index]) ==
                                       1
-                                  ? Colors.green
-                                  : Colors.red,
+                                  ? colorUP
+                                  : colorDOWN,
                               value: values[index]);
                         }),
                   );
@@ -113,15 +100,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 
-  List<String> _splitAndBuildArray(String value) {
-    var splitted = value.split(',');
-    return splitted;
-  }
-
-  int _compareValues(String a, String b) {
-    double valA = double.parse(a);
-    double valB = double.parse(b);
-    if (valA >= valB) return 1;
-    return 0;
-  }
 }
