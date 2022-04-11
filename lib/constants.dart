@@ -9,6 +9,7 @@ const padding_5 = EdgeInsets.symmetric(horizontal: 5);
 
 const padding_15 = EdgeInsets.symmetric(horizontal: 15);
 
+const primaryColor = Colors.blue;
 const bgColor = Colors.amber;
 const colorUP = Colors.green;
 const colorDOWN = Colors.red;

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       title: appBarTitle,
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: primaryColor,
       ),
       home: const MyHomePage(),
     );
@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: const Text(appBarTitle),
         centerTitle: true,
       ),
-      body:Center(
+      body: Center(
         child: Column(
           children: [
             StreamBuilder(
@@ -54,24 +54,28 @@ class _MyHomePageState extends State<MyHomePage> {
                 stream: dayRef.snapshots(),
                 // What will we do downloaded datas.
                 builder: (BuildContext context, AsyncSnapshot asyncsnapshot) {
+                  if (asyncsnapshot.connectionState ==
+                      ConnectionState.waiting) {
+                    return Center(child: CircularProgressIndicator());
+                  }
                   var dataStart = asyncsnapshot.data.data()['00:00'];
                   var data = asyncsnapshot.data.data()['15:00'];
 
                   var valuesStart = splitAndBuildArray(dataStart);
                   var values = splitAndBuildArray(data);
-                  
+
                   return Flexible(
                     child: ListView.builder(
                         itemCount: values.length,
                         itemBuilder: (context, index) {
-                          return LiStyle(//TODO: Circular progres dialog..
-                              title: titles[index],
-                              color: compareValues(
-                                          values[index], valuesStart[index]) ==
-                                      1
-                                  ? colorUP
-                                  : colorDOWN,
-                              value: values[index]);
+                          return LiStyle(
+                                  title: titles[index],
+                                  color: compareValues(values[index],
+                                              valuesStart[index]) ==
+                                          1
+                                      ? colorUP
+                                      : colorDOWN,
+                                  value: values[index]);
                         }),
                   );
                 })
@@ -80,5 +84,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-
 }

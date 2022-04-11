@@ -21,7 +21,7 @@ class LiStyle extends StatelessWidget {
               elevation: 4,
               child: Container(
                 width: double.infinity,
-                height: 65,
+                height: 55,
                 color: bgColor.shade100,
                 child: Row(
                   children: [
