@@ -59,31 +59,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
                   var valuesStart = splitAndBuildArray(dataStart);
                   var values = splitAndBuildArray(data);
-                  var titles = [
-                    'USD/TRY',
-                    'EUR/TRY',
-                    'AUD/TRY',
-                    'GBP/TRY',
-                    'JPY/TRY',
-                    'CHF/TRY',
-                    'CAD/TRY',
-                    'NOK/TRY',
-                    'EUR/USD',
-                    'EUR/GBP',
-                    'EUR/JPY',
-                    'GBP/USD',
-                    'USD/AUD',
-                    'USD/JPY',
-                    'USD/CHF',
-                    'USD/CAD',
-                    'USD/CNY'
-                  ];
+                  
                   return Flexible(
                     child: ListView.builder(
                         itemCount: values.length,
                         itemBuilder: (context, index) {
                           return LiStyle(//TODO: Circular progres dialog..
-                                          //TODO: constant class, Color class , padding maybe method class
                               title: titles[index],
                               color: compareValues(
                                           values[index], valuesStart[index]) ==

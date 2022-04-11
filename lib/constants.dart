@@ -16,3 +16,23 @@ const colorDOWN = Colors.red;
 const BoxShape circular = BoxShape.circle;
 
 const FontWeight bold = FontWeight.bold;
+
+List<String> titles = [
+                    'USD/TRY',
+                    'EUR/TRY',
+                    'AUD/TRY',
+                    'GBP/TRY',
+                    'JPY/TRY',
+                    'CHF/TRY',
+                    'CAD/TRY',
+                    'NOK/TRY',
+                    'EUR/USD',
+                    'EUR/GBP',
+                    'EUR/JPY',
+                    'GBP/USD',
+                    'USD/AUD',
+                    'USD/JPY',
+                    'USD/CHF',
+                    'USD/CAD',
+                    'USD/CNY'
+                  ];
