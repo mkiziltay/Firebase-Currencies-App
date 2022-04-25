@@ -16,8 +16,8 @@
 
 ## Used : Spesific Libraries
   * * ## Firebase libraries 
-* cloud_firestore:  
-* firebase_core: ^1.14.0
+*   cloud_firestore:  
+*   firebase_core: ^1.14.0
 
 ## Screen View Example
 <img src="https://github.com/mkiziltay/Firebase-Currencies-App/blob/master/curr_screen.png" alt = "Sample Screenview" width=394 height=851>
